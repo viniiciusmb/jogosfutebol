@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clássicos do Futebol — A sua central de streaming dos maiores jogos da história</title>
+<title>Futflix — A sua central de streaming dos maiores jogos da história</title>
 <meta name="description" content="Mais de 100 partidas lendárias do futebol mundial em um só lugar. Maratone os maiores jogos de todos os tempos, com vídeo, história e a opção de assistir sem spoiler. R$9,90/mês ou R$67,90 vitalício.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,6 +82,15 @@ nav.top.scrolled{background:rgba(7,9,15,.92);backdrop-filter:blur(16px);border-b
 .section{position:relative}
 .row-sec{padding:44px 0}
 .row-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px}
+/* callout de destaque (copy emocional) */
+.hook{max-width:var(--maxw);margin:0 auto;padding:44px 22px 0}
+.hook-inner{background:linear-gradient(120deg,rgba(245,166,35,.1),rgba(229,9,20,.06));border:1px solid rgba(245,166,35,.28);border-radius:18px;padding:30px 32px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.hook-inner .hk-ic{width:58px;height:58px;border-radius:16px;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.35);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:26px;flex:0 0 auto}
+.hook-inner .hk-txt{flex:1;min-width:240px}
+.hook-inner .hk-txt h3{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(19px,2.6vw,26px);line-height:1.2}
+.hook-inner .hk-txt h3 .gold{color:var(--gold)}
+.hook-inner .hk-txt p{color:#c6d1e2;font-size:15px;line-height:1.6;margin-top:8px}
+.hook-inner .hk-txt p b{color:#fff;font-weight:700}
 .row-title{font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);display:flex;align-items:center;gap:12px}
 .row-title .rt-bar{width:5px;height:26px;border-radius:3px;background:var(--gold)}
 .row-title .hl{color:var(--gold)}
@@ -170,6 +179,29 @@ nav.top.scrolled{background:rgba(7,9,15,.92);backdrop-filter:blur(16px);border-b
 .demo-body .db-m{color:var(--muted);font-size:12.5px;margin-top:3px}
 .demo-hint{text-align:center;color:var(--muted);font-size:12.5px;margin-top:14px;font-weight:600}
 .demo-hint i{color:var(--gold)}
+
+/* ============ CRAQUES (demo interativa) ============ */
+.legends-sec{padding:90px 0;border-top:1px solid var(--border)}
+.legends-inner{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+@media(max-width:900px){.legends-inner{grid-template-columns:1fr;gap:40px}}
+.legends-demo{background:var(--card);border:1px solid var(--border-2);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+.ld-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.ld-pill{cursor:pointer;user-select:none;border:1px solid var(--border);background:rgba(7,9,15,.5);color:var(--muted);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;transition:.18s;display:flex;align-items:center;gap:7px}
+.ld-pill:hover{border-color:var(--gold);color:#fff}
+.ld-pill.active{background:linear-gradient(120deg,var(--gold),var(--gold-2));color:#141414;border-color:transparent}
+.ld-pill .flag{font-size:14px}
+.ld-player{display:flex;align-items:center;gap:16px;padding:16px;background:rgba(7,9,15,.4);border:1px solid var(--border);border-radius:14px;margin-bottom:16px}
+.ld-avatar{width:64px;height:64px;border-radius:14px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:30px;color:#fff;border:2px solid rgba(255,255,255,.16)}
+.ld-player .ldp-name{font-family:'Archivo',sans-serif;font-weight:900;font-size:20px;line-height:1}
+.ld-player .ldp-tag{color:var(--muted);font-size:12.5px;font-weight:600;margin-top:4px}
+.ld-matches{display:flex;flex-direction:column;gap:10px}
+.ld-match{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;transition:.2s}
+.ld-match:hover{border-color:rgba(245,166,35,.4);background:rgba(245,166,35,.05);transform:translateX(3px)}
+.ld-match .ldm-badge{width:38px;height:38px;border-radius:9px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:11px;text-align:center;line-height:1}
+.ld-match .ldm-body{flex:1;min-width:0}
+.ld-match .ldm-t{font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;line-height:1.2}
+.ld-match .ldm-d{color:var(--muted);font-size:12px;margin-top:2px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.ld-match .ldm-play{color:var(--gold);font-size:14px;flex:0 0 auto}
 
 /* ============ PLANS / PRICING ============ */
 .pricing-wrap{background:linear-gradient(180deg,var(--navy-2),var(--navy));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:84px 0}
@@ -261,7 +293,7 @@ footer.site{border-top:1px solid var(--border);background:var(--navy-2);padding:
 <!-- ============ NAV ============ -->
 <nav class="top" id="nav">
   <div class="nav-inner">
-    <a href="#" class="brand"><span class="b-logo">🏆</span><span>Clássicos do Futebol<small>Streaming de clássicos</small></span></a>
+    <a href="#" class="brand"><span class="b-logo">🏆</span><span>Futflix<small>Streaming de clássicos</small></span></a>
     <a href="#planos" class="nav-cta"><i class="fa-solid fa-play"></i> Começar agora</a>
   </div>
 </nav>
@@ -290,8 +322,19 @@ footer.site{border-top:1px solid var(--border);background:var(--navy-2);padding:
   </div>
 </header>
 
+<!-- ============ HOOK (copy emocional) ============ -->
+<div class="hook reveal">
+  <div class="hook-inner">
+    <div class="hk-ic"><i class="fa-solid fa-heart-circle-bolt"></i></div>
+    <div class="hk-txt">
+      <h3>Você não sabe como é bom assistir <span class="gold">pela primeira vez</span> a uma partida que marcou a história.</h3>
+      <p>Te garanto: é <b>melhor que ver filme</b> e muito melhor que rolar o feed. É emoção de verdade, história de verdade — e agora está tudo aqui, a um play de distância.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ============ ROW: TOP 10 (playlist) ============ -->
-<section class="row-sec section" id="top10" style="border-top:1px solid var(--border)">
+<section class="row-sec section" id="top10">
   <div class="wrap">
     <div class="row-head">
       <div>
@@ -420,6 +463,27 @@ footer.site{border-top:1px solid var(--border);background:var(--navy-2);padding:
   </div>
 </section>
 
+<!-- ============ CRAQUES (feature) ============ -->
+<section class="legends-sec section">
+  <div class="wrap legends-inner">
+    <div class="legends-demo reveal">
+      <div class="ld-pills" id="ldPills"><!-- via JS --></div>
+      <div id="ldPlayer"><!-- via JS --></div>
+    </div>
+    <div class="feat-text reveal">
+      <span class="ft-eyebrow"><i class="fa-solid fa-star"></i> Os gênios do jogo</span>
+      <h2>As partidas que marcaram a carreira dos <span class="gold">maiores craques</span></h2>
+      <p>Messi, Cristiano, Pelé, Maradona, Ronaldo, Ronaldinho, Neymar. <b>Selecione o seu ídolo</b> e escolha a partida em que ele escreveu o nome na história — pronta pra você assistir.</p>
+      <ul class="ft-list">
+        <li><i class="fa-solid fa-hand-pointer"></i> Escolha o craque nas abas</li>
+        <li><i class="fa-solid fa-futbol"></i> Veja as partidas lendárias dele</li>
+        <li><i class="fa-solid fa-circle-play"></i> Toque em uma e dê play na história</li>
+      </ul>
+      <div class="ft-cta"><a href="#planos" class="btn-play"><i class="fa-solid fa-play"></i> Ver os craques em ação</a></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PRICING ============ -->
 <section class="pricing-wrap section" id="planos">
   <div class="wrap">
@@ -515,13 +579,13 @@ footer.site{border-top:1px solid var(--border);background:var(--navy-2);padding:
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <div class="fb-logo"><span>🏆</span> Clássicos do Futebol</div>
+        <div class="fb-logo"><span>🏆</span> Futflix</div>
         <p>Sua central de streaming dos maiores jogos da história. Os melhores momentos que o futebol já viveu, prontos pra você dar play.</p>
       </div>
       <div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap"><a href="#planos" class="nav-cta"><i class="fa-solid fa-play"></i> Começar agora</a></div>
     </div>
     <div class="foot-note"><i class="fa-solid fa-circle-info" style="color:var(--gold);margin-right:6px"></i>Projeto editorial de curadoria. Não temos vínculo com a Netflix nem com qualquer emissora; "streaming" e comparações são apenas ilustrativas. Os vídeos são incorporados do YouTube e pertencem aos seus canais e detentores de direitos. Imagens de transmissão pertencem às respectivas emissoras. Depoimentos ilustrativos. Preços em reais (R$).</div>
-    <div class="foot-bottom"><span>© 2026 Clássicos do Futebol · Todos os direitos reservados</span><span>Feito para quem ama a história do jogo</span></div>
+    <div class="foot-bottom"><span>© 2026 Futflix · Todos os direitos reservados</span><span>Feito para quem ama a história do jogo</span></div>
   </div>
 </footer>
 
@@ -638,6 +702,49 @@ footer.site{border-top:1px solid var(--border);background:var(--navy-2);padding:
       alert('Plano selecionado: '+label+'.\n\nConecte aqui seu checkout (Hotmart, Kiwify, Stripe, Mercado Pago...) para finalizar a compra.');
     });
   });
+
+  /* demo dos craques (feature interativa) */
+  var LEGENDS=[
+    {key:"messi",nome:"Lionel Messi",tab:"Messi",flag:"🇦🇷",tag:"O maior de todos, segundo muitos. Oito Bolas de Ouro e a glória no Catar.",num:10,jersey:"#75AADB",bg:"#123a63",
+     m:[["Argentina × França","Final da Copa 2022 — dois gols e o título eterno.","#75AADB"],["Barcelona × PSG","A Remontada de 2017 — a maior virada da Champions.","#A50044"],["Argentina × Brasil","O primeiro título com a Argentina, no Maracanã.","#75AADB"]]},
+    {key:"cr7",nome:"Cristiano Ronaldo",tab:"Cristiano",flag:"🇵🇹",tag:"Máquina de gols e recordes. O maior artilheiro da história.",num:7,jersey:"#C60C30",bg:"#5c0f1f",
+     m:[["Real Madrid × Juventus","Dois gols na final de 2017 e a Duodécima.","#C60C30"],["Real Madrid × Atlético","O gol de La Décima na prorrogação, em 2014.","#C60C30"],["Portugal × França","Líder do título europeu de Portugal em 2016.","#C60C30"]]},
+    {key:"pele",nome:"Pelé",tab:"Pelé",flag:"🇧🇷",tag:"O Rei. Único tricampeão mundial. O nome que define grandeza.",num:10,jersey:"#FFDF00",bg:"#0f5c2e",
+     m:[["Brasil × Itália","A obra-prima de 1970 e o gol mais bonito das Copas.","#009C3B"],["Brasil × Suécia","Aos 17 anos, dois gols na final de 1958.","#009C3B"],["Brasil × Inglaterra","A defesa impossível de Banks, em 1970.","#009C3B"]]},
+    {key:"maradona",nome:"Diego Maradona",tab:"Maradona",flag:"🇦🇷",tag:"O gênio rebelde. Carregou a Argentina ao título de 1986.",num:10,jersey:"#75AADB",bg:"#123a63",
+     m:[["Argentina × Inglaterra","A Mão de Deus e o Gol do Século, em 1986.","#75AADB"],["Argentina × Alemanha","O passe do gol do título de 1986.","#75AADB"]]},
+    {key:"ronaldo",nome:"Ronaldo Fenômeno",tab:"Ronaldo",flag:"🇧🇷",tag:"O Fenômeno. O atacante mais assustador e a redenção de 2002.",num:9,jersey:"#FFDF00",bg:"#0f5c2e",
+     m:[["Alemanha × Brasil","Os dois gols do penta e a redenção, em 2002.","#009C3B"],["Brasil × Holanda","Brilhou na semifinal de 1998.","#009C3B"]]},
+    {key:"ronaldinho",nome:"Ronaldinho Gaúcho",tab:"Ronaldinho",flag:"🇧🇷",tag:"A alegria em forma de futebol. O bruxo que encantou o mundo.",num:10,jersey:"#FFDF00",bg:"#0f5c2e",
+     m:[["Atlético-MG × São Paulo","Comandou o Galo rumo à Libertadores de 2013.","#000000"],["Real Madrid × Barcelona","A noite em que o Bernabéu aplaudiu o rival.","#A50044"]]},
+    {key:"neymar",nome:"Neymar Jr.",tab:"Neymar",flag:"🇧🇷",tag:"O maior craque de sua geração no Brasil. Artilheiro histórico.",num:10,jersey:"#FFDF00",bg:"#0f5c2e",
+     m:[["Brasil × Alemanha","O pênalti do ouro olímpico em casa, 2016.","#009C3B"],["Brasil × Espanha","Show na final da Confederações de 2013.","#009C3B"]]}
+  ];
+  function renderLegend(L){
+    var pl=document.getElementById('ldPlayer'); if(!pl) return;
+    pl.innerHTML='<div class="ld-player">'
+      +'<span class="ld-avatar" style="background:linear-gradient(135deg,'+L.jersey+','+shade(L.jersey,-24)+')">'+L.num+'</span>'
+      +'<div><div class="ldp-name">'+L.nome+'</div><div class="ldp-tag">'+L.flag+' '+L.tag+'</div></div>'
+    +'</div>'
+    +'<div class="ld-matches">'+L.m.map(function(x){
+      return '<div class="ld-match"><span class="ldm-badge" style="background:linear-gradient(135deg,'+x[2]+','+shade(x[2],-24)+')"><i class="fa-solid fa-futbol"></i></span>'
+        +'<div class="ldm-body"><div class="ldm-t">'+x[0]+'</div><div class="ldm-d">'+x[1]+'</div></div>'
+        +'<i class="fa-solid fa-play ldm-play"></i></div>';
+    }).join('')+'</div>';
+    pl.querySelectorAll('.ld-match').forEach(function(mm){ mm.addEventListener('click',function(){ location.href='#planos'; }); });
+  }
+  var ldPills=document.getElementById('ldPills');
+  if(ldPills){
+    ldPills.innerHTML=LEGENDS.map(function(L,i){ return '<button class="ld-pill'+(i===0?' active':'')+'" data-key="'+L.key+'"><span class="flag">'+L.flag+'</span> '+L.tab+'</button>'; }).join('');
+    ldPills.querySelectorAll('.ld-pill').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        ldPills.querySelectorAll('.ld-pill').forEach(function(b){b.classList.remove('active');});
+        btn.classList.add('active');
+        renderLegend(LEGENDS.filter(function(L){return L.key===btn.dataset.key;})[0]);
+      });
+    });
+    renderLegend(LEGENDS[0]);
+  }
 
   /* reveal on scroll */
   var revObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target);}});},{threshold:.12});
