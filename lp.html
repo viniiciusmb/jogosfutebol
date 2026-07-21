@@ -180,6 +180,19 @@ nav.top.scrolled{background:rgba(7,9,15,.92);backdrop-filter:blur(16px);border-b
 .demo-hint{text-align:center;color:var(--muted);font-size:12.5px;margin-top:14px;font-weight:600}
 .demo-hint i{color:var(--gold)}
 
+/* ============ VÍDEO FEATURE (Inter x Milan) ============ */
+.video-feat{padding:90px 0;border-top:1px solid var(--border);background:linear-gradient(180deg,var(--navy-2),var(--navy))}
+.video-feat-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
+@media(max-width:900px){.video-feat-inner{grid-template-columns:1fr;gap:36px}}
+.vf-player{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--border-2);box-shadow:var(--shadow);aspect-ratio:16/9;background:#000}
+.vf-player video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vf-player .vf-tag{position:absolute;top:14px;left:14px;z-index:3;font-family:'Archivo',sans-serif;font-weight:900;font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--red);color:#fff;padding:6px 12px;border-radius:7px;display:inline-flex;align-items:center;gap:7px}
+.vf-player .vf-tag .dotlive{width:7px;height:7px;border-radius:99px;background:#fff;animation:pulse 1.8s infinite}
+/* fallback caso o vídeo não carregue */
+.vf-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;background:radial-gradient(600px 300px at 50% 30%,rgba(245,166,35,.12),transparent 60%),var(--navy-3);z-index:1}
+.vf-fallback .vf-ic{width:70px;height:70px;border-radius:50%;background:rgba(245,166,35,.95);color:#141414;display:flex;align-items:center;justify-content:center;font-size:26px}
+.vf-fallback p{color:var(--muted);font-size:13px;max-width:34ch}
+
 /* ============ CRAQUES (demo interativa) ============ */
 .legends-sec{padding:90px 0;border-top:1px solid var(--border)}
 .legends-inner{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
@@ -383,6 +396,35 @@ footer.site{border-top:1px solid var(--border);background:var(--navy-2);padding:
   </div>
 </section>
 
+<!-- ============ FEATURE: MESSI x CR7 ============ -->
+<section class="feat-1970 section" style="border-top:1px solid var(--border)">
+  <div class="wrap feat-1970-inner">
+    <div class="feat-text reveal">
+      <span class="ft-eyebrow"><i class="fa-solid fa-bolt"></i> A maior rivalidade da história</span>
+      <h2>Messi x Cristiano: os clássicos que <span class="gold">pararam o mundo</span></h2>
+      <p>Dois gênios, uma era inteira dividida entre eles. Reviva os <b>Clásicos</b> mais elétricos entre Barça e Real, quando Messi e CR7 duelavam gol a gol pelo trono do futebol — e o planeta inteiro parava pra assistir.</p>
+      <ul class="ft-list">
+        <li><i class="fa-solid fa-futbol"></i> Os maiores Barcelona × Real Madrid da era Messi–CR7</li>
+        <li><i class="fa-solid fa-trophy"></i> Goleadas, viradas e noites históricas no Camp Nou e no Bernabéu</li>
+        <li><i class="fa-solid fa-circle-play"></i> Cada duelo com história completa e vídeo pra assistir</li>
+      </ul>
+      <div class="ft-cta"><a href="#planos" class="btn-play"><i class="fa-solid fa-play"></i> Assistir aos Clásicos</a></div>
+    </div>
+    <div class="feat-media reveal">
+      <img src="imagem2lpfutebol.jpg" alt="Cristiano Ronaldo e Messi frente a frente em um Clásico">
+      <span class="fm-tag">⚡ Rivalidade eterna</span>
+      <div class="fm-play"><span class="pbtn"><i class="fa-solid fa-play"></i></span></div>
+      <div class="fm-cap">
+        <div>
+          <div class="fmc-t">Barcelona × Real Madrid</div>
+          <div class="fmc-s">A era Messi x Cristiano Ronaldo</div>
+        </div>
+        <span class="fm-badge-live">REVIVER</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FEATURE 1970 (imagem enviada) ============ -->
 <section class="feat-1970 section" style="border-top:1px solid var(--border)">
   <div class="wrap feat-1970-inner">
@@ -408,6 +450,30 @@ footer.site{border-top:1px solid var(--border);background:var(--navy-2);padding:
         <li><i class="fa-solid fa-people-group"></i> Escalações, gols minuto a minuto e curiosidades</li>
       </ul>
       <div class="ft-cta"><a href="#planos" class="btn-play"><i class="fa-solid fa-play"></i> Quero reviver os clássicos</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VÍDEO FEATURE: INTER x MILAN ============ -->
+<section class="video-feat section">
+  <div class="wrap video-feat-inner">
+    <div class="vf-player reveal">
+      <video id="interMilanVideo" controls preload="metadata" playsinline>
+        <source src="video1lpfutebol.mp4" type="video/mp4">
+        Seu navegador não suporta a reprodução deste vídeo.
+      </video>
+      <div class="vf-fallback" id="vfFallback" style="display:none">
+        <div class="vf-ic"><i class="fa-solid fa-film"></i></div>
+        <p>O vídeo <b>video1lpfutebol.mp4</b> ainda não foi carregado. Faça o upload dele na mesma pasta do site.</p>
+      </div>
+      <span class="vf-tag"><span class="dotlive"></span> Bastidores</span>
+    </div>
+    <div class="feat-text reveal">
+      <span class="ft-eyebrow"><i class="fa-solid fa-fire"></i> Clássicos sinistros</span>
+      <h2>Inter × Milan: quando <span class="gold">até o juiz era lenda</span></h2>
+      <p>Teve época em que o Derby della Madonnina juntava tantos craques que <b>todo mundo em campo era ídolo</b> — dos dois times ao apito. Maldini, Ronaldo, Zanetti, Kaká, Shevchenko... e um clima que fazia de cada jogo um capítulo à parte da história.</p>
+      <p style="color:var(--muted);font-size:14.5px">Dá o play no vídeo e entenda por que esses clássicos de Milão são alguns dos mais lendários — e sinistros — que o futebol já viveu.</p>
+      <div class="ft-cta"><a href="#planos" class="btn-play"><i class="fa-solid fa-play"></i> Quero ver esses clássicos</a></div>
     </div>
   </div>
 </section>
@@ -744,6 +810,16 @@ footer.site{border-top:1px solid var(--border);background:var(--navy-2);padding:
       });
     });
     renderLegend(LEGENDS[0]);
+  }
+
+  /* vídeo Inter x Milan: mostra fallback se não carregar */
+  var imVideo=document.getElementById('interMilanVideo');
+  var vfFallback=document.getElementById('vfFallback');
+  if(imVideo && vfFallback){
+    var src=imVideo.querySelector('source');
+    function showFallback(){ vfFallback.style.display='flex'; }
+    if(src){ src.addEventListener('error', showFallback); }
+    imVideo.addEventListener('error', showFallback);
   }
 
   /* reveal on scroll */
