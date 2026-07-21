@@ -53,6 +53,27 @@ img{max-width:100%;display:block}
 .score-nums{display:flex;align-items:center;gap:clamp(8px,2.4vw,20px);font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
 .score-nums .n{font-size:clamp(52px,13vw,104px);line-height:.9;text-shadow:0 6px 30px rgba(0,0,0,.6)}
 .score-nums .x{font-size:clamp(22px,5vw,40px);color:var(--accent)}
+/* placar ocultável (respeita preferência salva no catálogo) */
+body.scores-hidden .score-hideable{filter:blur(16px);transition:filter .2s}
+body.scores-hidden .score-hideable:hover{filter:blur(0)}
+.score-hideable{transition:filter .2s}
+.reveal-hint{display:none;text-align:center;color:var(--muted);font-size:12.5px;font-weight:600;margin-top:10px}
+body.scores-hidden .reveal-hint{display:block}
+.reveal-hint i{color:var(--accent)}
+/* barra de playlist (assistir tudo) */
+.playlist-bar{position:sticky;top:57px;z-index:55;background:linear-gradient(90deg,rgba(245,166,35,.14),rgba(10,15,30,.9));backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.playlist-bar-inner{max-width:var(--maxw);margin:0 auto;padding:11px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.pb-info{display:flex;align-items:center;gap:11px;min-width:0}
+.pb-tag{font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#141414;background:var(--accent);padding:4px 9px;border-radius:6px;flex:0 0 auto}
+.pb-txt{font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pb-txt span{color:var(--muted);font-weight:600}
+.pb-actions{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.pb-btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;padding:9px 15px;border-radius:9px;cursor:pointer;border:none;font-family:inherit;transition:.18s;text-decoration:none}
+.pb-btn.next{background:var(--accent);color:#141414}
+.pb-btn.next:hover{transform:translateY(-1px)}
+.pb-btn.exit{background:transparent;border:1px solid var(--border-2);color:var(--muted)}
+.pb-btn.exit:hover{color:var(--text);border-color:var(--accent)}
+@media(max-width:560px){.pb-txt{display:none}}
 .ft-label{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);border-radius:99px;padding:4px 12px;background:rgba(10,15,30,.5)}
 .hero-meta{display:flex;gap:9px 22px;justify-content:center;flex-wrap:wrap;margin-top:30px;color:#c2cee0;font-size:13.5px;font-weight:600}
 .hero-meta span{display:inline-flex;align-items:center;gap:7px}
@@ -443,8 +464,9 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-2)}
             <div class="tname">${esc(a.nome)}</div>
           </div>
           <div class="score-center">
-            <div class="score-nums"><span class="n">${a.placar}</span><span class="x">×</span><span class="n">${b.placar}</span></div>
+            <div class="score-nums score-hideable"><span class="n">${a.placar}</span><span class="x">×</span><span class="n">${b.placar}</span></div>
             <span class="ft-label">Resultado final</span>
+            <div class="reveal-hint"><i class="fa-solid fa-eye"></i> Passe o mouse para ver o placar</div>
           </div>
           <div class="team-side">
             <div class="crest" style="background:linear-gradient(135deg,${b.cor},${shade(b.cor,-20)});color:${contrast(b.cor)}">${initials(b.nome)}</div>
@@ -619,12 +641,45 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-2)}
     const p=new URLSearchParams(window.location.search);
     return p.get('id');
   }
+
+  /* --- preferência de placar (cookie compartilhado com o catálogo) --- */
+  function getCookie(name){var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));return m?decodeURIComponent(m[1]):null;}
+  function applyScorePref(){ if(getCookie('cf_placar')==='off'){ document.body.classList.add('scores-hidden'); } }
+
+  /* --- playlist Top 10 (mesma ordem do catálogo) --- */
+  var TOP10_SLUGS=["uruguai-brasil-1950","brasil-italia-1970","argentina-franca-2022","liverpool-ac-milan-2005","argentina-inglaterra-1986","brasil-alemanha-2014","barcelona-psg-2017","manchester-united-bayern-1999","italia-brasil-1982","brasil-suecia-1958"];
+  function setupPlaylist(currentSlug){
+    var p=new URLSearchParams(window.location.search);
+    if(p.get('playlist')!=='top10') return;
+    // achar posição atual na playlist (por slug); se não estiver, usa índice i
+    var idx=TOP10_SLUGS.indexOf(currentSlug);
+    if(idx<0){ idx=parseInt(p.get('i')||'0',10)||0; }
+    var pos=idx+1, total=TOP10_SLUGS.length;
+    // próximo jogo que exista no catálogo
+    var nextSlug=null, nextIdx=idx;
+    for(var k=idx+1;k<total;k++){ if(gameData.find(g=>g.slug===TOP10_SLUGS[k])){ nextSlug=TOP10_SLUGS[k]; nextIdx=k; break; } }
+    var bar=document.createElement('div');
+    bar.className='playlist-bar';
+    bar.innerHTML='<div class="playlist-bar-inner">'
+      +'<div class="pb-info"><span class="pb-tag"><i class="fa-solid fa-clapperboard"></i> Playlist</span>'
+      +'<span class="pb-txt">Top 10 da história <span>· '+pos+' de '+total+'</span></span></div>'
+      +'<div class="pb-actions">'
+      +(nextSlug?('<a class="pb-btn next" href="partida.html?id='+encodeURIComponent(nextSlug)+'&playlist=top10&i='+nextIdx+'">Próximo <i class="fa-solid fa-forward-step"></i></a>'):'<span class="pb-btn exit" style="cursor:default">Fim da playlist</span>')
+      +'<a class="pb-btn exit" href="catalogo.html#playlistRail">Sair</a>'
+      +'</div></div>';
+    // inserir logo abaixo da topbar
+    var topbar=document.querySelector('.topbar');
+    if(topbar && topbar.parentNode){ topbar.parentNode.insertBefore(bar, topbar.nextSibling); }
+  }
+
   function init(){
     const id=getId();
     const g = id ? gameData.find(x=> x.slug===id || x.id===id) : null;
+    applyScorePref();
     if(!g){ renderError(); setupShare(null); return; }
     render(g);
     setupShare(g);
+    setupPlaylist(g.slug);
     window.scrollTo(0,0);
   }
   document.addEventListener('DOMContentLoaded', init);
