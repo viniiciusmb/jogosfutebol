@@ -202,6 +202,79 @@ select#sort option{background:#0d1424}
 .loading-row{grid-column:1/-1;text-align:center;color:var(--muted);font-size:13px;padding:14px;font-weight:600}
 .loading-row i{color:var(--accent);margin-right:8px}
 
+/* ===================== HERO BADGES (substituem contador) ===================== */
+.hero-badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:36px}
+.hero-badges .hb{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border);background:var(--card);color:#c6d1e2;font-size:13.5px;font-weight:700;padding:9px 16px;border-radius:999px}
+.hero-badges .hb i{color:var(--accent);font-size:13px}
+
+/* ===================== SCORE TOGGLE (cabeçalho) ===================== */
+.score-toggle{display:inline-flex;align-items:center;gap:9px;cursor:pointer;user-select:none;border:1px solid var(--border);background:var(--card);border-radius:999px;padding:7px 12px 7px 14px;transition:.18s}
+.score-toggle:hover{border-color:var(--accent)}
+.score-toggle .tg-icon{color:var(--accent);font-size:13px}
+.score-toggle .tg-text{font-size:13px;font-weight:700;color:var(--text)}
+.score-toggle .tg-switch{position:relative;width:38px;height:21px;border-radius:999px;background:#2a3852;transition:.2s;flex:0 0 auto}
+.score-toggle .tg-knob{position:absolute;top:2.5px;left:2.5px;width:16px;height:16px;border-radius:50%;background:#8496b3;transition:.2s}
+.score-toggle.on .tg-switch{background:linear-gradient(120deg,var(--accent),var(--accent-2))}
+.score-toggle.on .tg-knob{left:19.5px;background:#141414}
+@media(max-width:520px){.score-toggle .tg-text{display:none}}
+
+/* placar oculto: aplicado no <body>.scores-hidden */
+body.scores-hidden .score-hideable{filter:blur(9px);opacity:.85;transition:filter .2s}
+body.scores-hidden .score-hideable:hover{filter:blur(0);opacity:1}
+.score-hideable{transition:filter .2s}
+
+/* ===================== PLAYLIST (Netflix-style) ===================== */
+.playlist-sec{padding:56px 0 20px}
+.playlist-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.playlist-head .ph-left{max-width:640px}
+.playlist-head .eyebrow2{display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(245,166,35,.28);background:rgba(245,166,35,.06);padding:7px 15px;border-radius:999px;margin-bottom:16px}
+.playlist-head h2{font-size:clamp(24px,4vw,38px);font-weight:900;letter-spacing:-.02em;line-height:1.08}
+.playlist-head h2 .hl{color:var(--accent)}
+.playlist-head p{color:var(--muted);font-size:14.5px;margin-top:10px}
+.pl-controls{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.watch-all{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#141414;font-weight:800;font-size:14.5px;padding:12px 20px;border-radius:12px;border:none;cursor:pointer;transition:.2s;box-shadow:0 10px 26px -12px rgba(245,166,35,.7)}
+.watch-all:hover{transform:translateY(-2px);box-shadow:0 14px 32px -12px rgba(245,166,35,.9)}
+.pl-nav{width:42px;height:42px;border-radius:50%;border:1px solid var(--border-2);background:var(--card);color:var(--text);cursor:pointer;font-size:15px;transition:.18s;display:none}
+.pl-nav:hover{border-color:var(--accent);color:var(--accent)}
+@media(min-width:760px){.pl-nav{display:inline-flex;align-items:center;justify-content:center}}
+
+.playlist-rail{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 20px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.playlist-rail::-webkit-scrollbar{height:8px}
+.playlist-rail::-webkit-scrollbar-thumb{background:var(--border);border-radius:99px}
+.pl-card{flex:0 0 auto;width:270px;scroll-snap-align:start;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:.25s;position:relative}
+.pl-card:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(245,166,35,.5);box-shadow:var(--shadow);z-index:2}
+.pl-card.pl-soon{cursor:default;opacity:.72}
+.pl-card.pl-soon:hover{transform:none;border-color:var(--border);box-shadow:none}
+.pl-rank{position:absolute;top:-6px;left:10px;z-index:4;font-size:64px;font-weight:900;line-height:1;color:var(--accent);text-shadow:0 3px 12px rgba(0,0,0,.8),0 0 2px #000;-webkit-text-stroke:2px rgba(10,15,30,.55);letter-spacing:-.04em}
+.pl-thumb{position:relative;height:150px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pl-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,30,.2),rgba(10,15,30,.55) 60%,var(--card));z-index:2}
+.pl-badge{position:absolute;top:10px;right:10px;z-index:3;font-size:9.5px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:4px 8px;border-radius:6px}
+.pl-score{position:relative;z-index:3;font-weight:900;font-size:34px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.85)}
+.pl-score .x{color:var(--accent);font-size:20px;margin:0 4px}
+.pl-play{position:absolute;bottom:12px;right:12px;z-index:4;width:38px;height:38px;border-radius:50%;background:rgba(245,166,35,.95);color:#141414;display:flex;align-items:center;justify-content:center;font-size:14px;opacity:0;transform:scale(.8);transition:.22s}
+.pl-card:hover .pl-play{opacity:1;transform:scale(1)}
+.pl-soon .pl-play{display:none}
+.pl-info{padding:14px 16px 16px}
+.pl-teams{font-weight:800;font-size:15px;line-height:1.2}
+.pl-meta{color:var(--muted);font-size:12px;font-weight:600;margin-top:4px}
+
+/* ===================== FIRST-VISIT POPUP ===================== */
+.pref-overlay{position:fixed;inset:0;z-index:300;background:rgba(6,9,18,.82);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;pointer-events:none;transition:opacity .3s}
+.pref-overlay.show{opacity:1;pointer-events:auto}
+.pref-modal{background:linear-gradient(180deg,#131c30,var(--card));border:1px solid var(--border-2);border-radius:20px;max-width:440px;width:100%;padding:34px 30px 28px;text-align:center;box-shadow:var(--shadow);transform:translateY(16px) scale(.98);transition:.3s}
+.pref-overlay.show .pref-modal{transform:none}
+.pref-modal .pm-icon{width:64px;height:64px;border-radius:18px;margin:0 auto 20px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:28px}
+.pref-modal h3{font-size:23px;font-weight:900;letter-spacing:-.02em;margin-bottom:10px}
+.pref-modal p{color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:26px}
+.pref-actions{display:flex;flex-direction:column;gap:11px}
+.pref-btn{display:flex;align-items:center;justify-content:center;gap:11px;font-weight:800;font-size:15.5px;padding:15px;border-radius:13px;cursor:pointer;border:none;font-family:inherit;transition:.2s}
+.pref-btn.primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#141414;box-shadow:0 12px 30px -12px rgba(245,166,35,.7)}
+.pref-btn.primary:hover{transform:translateY(-2px)}
+.pref-btn.secondary{background:transparent;border:1px solid var(--border-2);color:var(--text)}
+.pref-btn.secondary:hover{border-color:var(--accent);color:var(--accent)}
+.pref-btn .pb-sub{font-weight:600;font-size:12px;opacity:.7;display:block;margin-top:2px}
+.pref-foot{color:var(--muted-2);font-size:12px;margin-top:18px}
+
 /* ===================== SECTION SHELL (novas seções) ===================== */
 .section-block{padding:64px 0 30px;border-top:1px solid var(--border)}
 .section-head{text-align:center;max-width:640px;margin:0 auto 40px}
@@ -228,34 +301,25 @@ select#sort option{background:#0d1424}
 .rank-meta .yr{font-weight:900;font-size:18px;color:var(--text);font-variant-numeric:tabular-nums;margin-top:2px}
 .rank-meta .go{color:var(--muted);font-size:11px;font-weight:700;margin-top:6px;display:flex;align-items:center;gap:5px;justify-content:flex-end;transition:gap .2s}
 .rank-row:hover .rank-meta .go{gap:9px;color:var(--accent)}
-@media(max-width:640px){
-  .rank-row{grid-template-columns:auto 1fr;gap:14px;padding:14px 16px}
-  .rank-meta{display:none}
-  .rank-num{min-width:48px}
-}
+@media(max-width:640px){.rank-row{grid-template-columns:auto 1fr;gap:14px;padding:14px 16px}.rank-meta{display:none}.rank-num{min-width:48px}}
 
 /* ===================== CRAQUES (jogadores) ===================== */
-.legends-intro{text-align:center;margin-bottom:6px}
 .legend-tabs{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
 .legend-tab{cursor:pointer;user-select:none;border:1px solid var(--border);background:var(--card);color:var(--muted);padding:9px 17px;border-radius:999px;font-size:13.5px;font-weight:700;transition:.18s;display:flex;align-items:center;gap:8px}
 .legend-tab:hover{border-color:var(--accent);color:var(--text)}
 .legend-tab.active{background:linear-gradient(120deg,var(--accent),#ffca6a);color:#141414;border-color:transparent;box-shadow:0 6px 18px -6px rgba(245,166,35,.55)}
 .legend-tab .flag{font-size:15px}
-
 .legend-panel{display:none;animation:fadeUp .4s ease}
 .legend-panel.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
 .legend-card{display:grid;grid-template-columns:300px 1fr;gap:0;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;max-width:1000px;margin:0 auto;box-shadow:var(--shadow)}
 @media(max-width:800px){.legend-card{grid-template-columns:1fr}}
-/* retrato SVG */
 .legend-portrait{position:relative;min-height:340px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
 .legend-portrait svg{position:absolute;inset:0;width:100%;height:100%}
 .legend-portrait .p-name-badge{position:relative;z-index:3;width:100%;padding:18px 20px;background:linear-gradient(0deg,rgba(10,15,30,.92),transparent);display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
 .legend-portrait .p-num{font-size:60px;font-weight:900;line-height:.8;color:rgba(255,255,255,.9);letter-spacing:-.04em}
 .legend-portrait .p-pos{color:var(--accent);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.08em;text-align:right}
 .legend-portrait .p-pos .cty{color:#c6d1e2;font-weight:600;display:block;margin-top:3px;font-size:12.5px;text-transform:none;letter-spacing:0}
-
 .legend-info{padding:28px 30px;display:flex;flex-direction:column}
 .legend-info .li-name{font-size:clamp(26px,4vw,36px);font-weight:900;letter-spacing:-.02em;line-height:1}
 .legend-info .li-tag{color:var(--muted);font-size:14px;font-weight:500;margin:8px 0 20px;line-height:1.5}
@@ -292,7 +356,20 @@ select#sort option{background:#0d1424}
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
+<!-- ============ POPUP DE PRIMEIRA VISITA ============ -->
+<div class="pref-overlay" id="prefOverlay" role="dialog" aria-modal="true" aria-labelledby="prefTitle">
+  <div class="pref-modal">
+    <div class="pm-icon"><i class="fa-solid fa-futbol"></i></div>
+    <h3 id="prefTitle">Bem-vindo aos Clássicos!</h3>
+    <p>Antes de começar: você quer ver os <b>placares</b> dos jogos, ou prefere ocultá-los para reviver cada partida sem spoiler?</p>
+    <div class="pref-actions">
+      <button class="pref-btn primary" id="prefShow"><i class="fa-solid fa-eye"></i> Mostrar os placares</button>
+      <button class="pref-btn secondary" id="prefHide"><i class="fa-solid fa-eye-slash"></i> Ocultar placares <span class="pb-sub">Sem spoiler — passe o mouse pra revelar</span></button>
+    </div>
+    <div class="pref-foot">Você pode mudar isso quando quiser no botão “Placar”, no topo.</div>
+  </div>
+</div>
+
 <header class="site">
   <div class="header-inner">
     <div class="brand">
@@ -303,7 +380,11 @@ select#sort option{background:#0d1424}
       </div>
     </div>
     <div class="header-right">
-      <span class="pill-count"><i class="fa-solid fa-futbol" style="margin-right:6px"></i><span id="totalGames">100</span> partidas</span>
+      <label class="score-toggle" id="scoreToggle" title="Mostrar ou ocultar os placares dos jogos">
+        <i class="fa-solid fa-eye tg-icon"></i>
+        <span class="tg-text">Placar</span>
+        <span class="tg-switch"><span class="tg-knob"></span></span>
+      </label>
     </div>
   </div>
 </header>
@@ -314,11 +395,57 @@ select#sort option{background:#0d1424}
     <span class="eyebrow"><i class="fa-solid fa-star"></i> Curadoria editorial</span>
     <h2>Os Maiores Jogos <span class="hl">da História do Futebol</span></h2>
     <p class="sub">Os confrontos mais emocionantes, dramáticos e inesquecíveis já disputados no planeta — de Pelé a Messi, do Maracanazo à Remontada. Cada partida com vídeo, história completa, escalações, gols e legado.</p>
-    <div class="counter" id="heroCounter">
-      <div class="stat"><div class="num" data-target="100">0</div><div class="lbl">Jogos lendários</div></div>
-      <div class="stat"><div class="num" data-target="32">0</div><div class="lbl">Campeonatos</div></div>
-      <div class="stat"><div class="num" data-target="6">0</div><div class="lbl">Décadas</div></div>
+    <div class="hero-badges" id="heroBadges">
+      <span class="hb"><i class="fa-solid fa-trophy"></i> Copa do Mundo</span>
+      <span class="hb"><i class="fa-solid fa-shield-halved"></i> Libertadores</span>
+      <span class="hb"><i class="fa-solid fa-star"></i> Champions League</span>
+      <span class="hb"><i class="fa-solid fa-fire"></i> Clássicos históricos</span>
     </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAYLIST TOP 10 (Netflix) ============ -->
+<section class="playlist-sec">
+  <div class="wrap">
+    <div class="playlist-head">
+      <div class="ph-left">
+        <span class="eyebrow2"><i class="fa-solid fa-clapperboard"></i> Sua maratona começa aqui</span>
+        <h2>Top 10 <span class="hl">para assistir agora</span></h2>
+        <p>Os dez maiores jogos da história, prontos pra você maratonar em sequência — igual série.</p>
+      </div>
+      <div class="pl-controls">
+        <button class="watch-all" id="watchAll"><i class="fa-solid fa-play"></i> Assistir tudo</button>
+        <button class="pl-nav" id="plPrev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="pl-nav" id="plNext" aria-label="Próximo"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+    <div class="playlist-rail" id="playlistRail"><!-- via JS --></div>
+  </div>
+</section>
+
+<!-- ============ CRAQUES ============ -->
+<section class="section-block" id="craques">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow2"><i class="fa-solid fa-star"></i> Os gênios do jogo</span>
+      <h2>As Melhores Partidas <span class="hl">de Cada Craque</span></h2>
+      <p>Messi, Cristiano, Pelé, Maradona, Ronaldo, Ronaldinho e Neymar. Escolha um ídolo e reviva os jogos em que ele escreveu seu nome na eternidade.</p>
+    </div>
+    <div class="legend-tabs" id="legendTabs"><!-- via JS --></div>
+    <div id="legendPanels"><!-- via JS --></div>
+  </div>
+</section>
+
+<!-- ============ TOP 10 RANKING (curadoria) ============ -->
+<section class="section-block" id="top10">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow2"><i class="fa-solid fa-crown"></i> O ranking definitivo</span>
+      <h2>Os 10 Maiores Jogos <span class="hl">de Todos os Tempos</span></h2>
+      <p>Por que estes dez? A emoção, o drama, a reviravolta e o peso na história. Clique em qualquer um para reviver.</p>
+    </div>
+    <div class="top10" id="top10List"><!-- via JS --></div>
   </div>
 </section>
 
@@ -348,35 +475,10 @@ select#sort option{background:#0d1424}
 <!-- ============ RESULTS ============ -->
 <main class="wrap">
   <div class="result-meta">
-    <div class="count">Mostrando <b id="showing">0</b> de <b id="total">0</b> jogos <span class="active-tag" id="activeTag"></span></div>
+    <div class="count"><b id="showing">0</b> <span id="showingWord">jogos</span> <span class="active-tag" id="activeTag"></span></div>
   </div>
   <div class="grid" id="grid"></div>
 </main>
-
-<!-- ============ TOP 10 RANKING ============ -->
-<section class="section-block" id="top10">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow2"><i class="fa-solid fa-crown"></i> O ranking definitivo</span>
-      <h2>Os 10 Maiores Jogos <span class="hl">de Todos os Tempos</span></h2>
-      <p>Nossa curadoria elegeu as dez partidas mais lendárias já disputadas — pela emoção, pelo drama, pela reviravolta e pelo peso na história. Clique para reviver cada uma.</p>
-    </div>
-    <div class="top10" id="top10List"><!-- via JS --></div>
-  </div>
-</section>
-
-<!-- ============ CRAQUES ============ -->
-<section class="section-block" id="craques">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow2"><i class="fa-solid fa-star"></i> Os gênios do jogo</span>
-      <h2>As Melhores Partidas <span class="hl">de Cada Craque</span></h2>
-      <p>Messi, Cristiano, Pelé, Maradona, Ronaldo, Ronaldinho e Neymar. Escolha um ídolo e reviva os jogos em que ele escreveu seu nome na eternidade.</p>
-    </div>
-    <div class="legend-tabs" id="legendTabs"><!-- via JS --></div>
-    <div id="legendPanels"><!-- via JS --></div>
-  </div>
-</section>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site">
@@ -483,7 +585,7 @@ select#sort option{background:#0d1424}
         </div>
         <div class="score-badge">
           <span class="tm" style="color:${contrastText(a.cor)}">${a.nome}</span>
-          <span class="sc">${a.placar}<span class="x">×</span>${b.placar}</span>
+          <span class="sc score-hideable">${a.placar}<span class="x">×</span>${b.placar}</span>
           <span class="tm" style="color:${contrastText(b.cor)}">${b.nome}</span>
         </div>
       </div>
@@ -491,7 +593,7 @@ select#sort option{background:#0d1424}
         <div class="card-comp">
           <span>${g.competicao}</span><span class="sep"></span><span class="fase">${g.fase} · ${g.ano}</span>
         </div>
-        <div class="card-title">${a.nome} ${a.placar} × ${b.placar} ${b.nome}</div>
+        <div class="card-title">${a.nome} <span class="score-hideable">${a.placar} × ${b.placar}</span> ${b.nome}</div>
         <div class="card-meta">
           <span><i class="fa-solid fa-location-dot"></i>${g.estadio}, ${g.cidade}</span>
         </div>
@@ -537,7 +639,6 @@ select#sort option{background:#0d1424}
     computeFiltered();
     renderedCount=0;
     grid.innerHTML="";
-    el("#total").textContent = filtered.length;
     el("#activeTag").textContent = activeCat==="todos" ? "" :
         ("· "+(CATS.find(c=>c.key===activeCat)?.label||""));
     if(filtered.length===0){
@@ -566,6 +667,7 @@ select#sort option{background:#0d1424}
     });
     renderedCount += next.length;
     el("#showing").textContent = renderedCount;
+    var sw=el("#showingWord"); if(sw) sw.textContent = renderedCount===1?"jogo":"jogos";
   }
 
   let sentinel;
@@ -635,74 +737,271 @@ select#sort option{background:#0d1424}
     renderReset();
   }
 
-  /* --- Contador animado do hero --- */
-  function animateCounter(){
-    const nums = document.querySelectorAll("#heroCounter .num");
-    const obs = new IntersectionObserver((entries,o)=>{
-      entries.forEach(en=>{
-        if(!en.isIntersecting) return;
-        const node=en.target, target=+node.dataset.target; let cur=0;
-        const step=Math.max(1,Math.round(target/40));
-        const iv=setInterval(()=>{ cur+=step; if(cur>=target){cur=target;clearInterval(iv);} node.textContent=cur; },26);
-        o.unobserve(node);
-      });
-    },{threshold:.5});
-    nums.forEach(n=>obs.observe(n));
-  }
-
   /* --- Init --- */
   function init(){
-    el("#totalGames").textContent = gameData.length;
     setupCardObserver();
     buildPills();
-    animateCounter();
     renderReset();
   }
   document.addEventListener("DOMContentLoaded", init);
 })();
 </script>
 
-<!-- ============ MÓDULO: TOP 10 + CRAQUES ============ -->
+<!-- ============ PREFERÊNCIA DE PLACAR + POPUP ============ -->
 <script>
 /* ============================================================
-   MÓDULO: Top 10 + Craques (retratos SVG originais)
+   Preferência de placar (cookie) + popup de primeira visita
+   ============================================================ */
+(function(){
+  "use strict";
+  var COOKIE="cf_placar"; // valores: "on" (mostrar) | "off" (ocultar)
+
+  function setCookie(name,val,days){
+    var d=new Date(); d.setTime(d.getTime()+days*24*60*60*1000);
+    document.cookie=name+"="+val+";expires="+d.toUTCString()+";path=/;SameSite=Lax";
+  }
+  function getCookie(name){
+    var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));
+    return m?decodeURIComponent(m[1]):null;
+  }
+
+  var body=document.body;
+  var toggle=document.getElementById('scoreToggle');
+  var overlay=document.getElementById('prefOverlay');
+
+  function applyState(show){
+    if(show){ body.classList.remove('scores-hidden'); }
+    else    { body.classList.add('scores-hidden'); }
+    if(toggle){
+      toggle.classList.toggle('on', show);
+      var ic=toggle.querySelector('.tg-icon');
+      if(ic){ ic.className='tg-icon fa-solid '+(show?'fa-eye':'fa-eye-slash'); }
+    }
+  }
+
+  function save(show){ setCookie(COOKIE, show?'on':'off', 365); applyState(show); }
+
+  // estado inicial
+  var pref=getCookie(COOKIE);
+  if(pref==='on'){ applyState(true); }
+  else if(pref==='off'){ applyState(false); }
+  else {
+    // primeira visita → mostra popup (default visual: placar oculto até escolher)
+    applyState(true);
+    if(overlay){
+      setTimeout(function(){ overlay.classList.add('show'); }, 500);
+    }
+  }
+
+  // toggle no cabeçalho
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      var willShow = !toggle.classList.contains('on');
+      save(willShow);
+    });
+  }
+
+  // popup
+  function closePopup(){ if(overlay) overlay.classList.remove('show'); }
+  var bShow=document.getElementById('prefShow');
+  var bHide=document.getElementById('prefHide');
+  if(bShow) bShow.addEventListener('click', function(){ save(true); closePopup(); });
+  if(bHide) bHide.addEventListener('click', function(){ save(false); closePopup(); });
+  if(overlay) overlay.addEventListener('click', function(e){ if(e.target===overlay){ save(true); closePopup(); } });
+})();
+
+</script>
+
+<!-- ============ MÓDULO: TOP 10 / PLAYLIST + CRAQUES ============ -->
+<script>
+/* ============================================================
+   MÓDULO: Top 10 (playlist Netflix) + Craques (retratos SVG)
    Depende de: window.gameData (do catálogo)
    ============================================================ */
 (function(){
   "use strict";
   if(typeof gameData==='undefined') return;
 
-  /* util: achar jogo no catálogo por slug (p/ linkar) */
   const bySlug = s => gameData.find(g=>g.slug===s);
-  const CAT_LABEL={"copa-do-mundo":"Copa do Mundo","libertadores":"Libertadores","champions":"Champions League","brasileirao":"Nacional","classicos":"Clássico"};
-  const LVL={"LENDÁRIO":["🔥","lv-len","#F5A623","#141414"],"ÉPICO":["⚡","lv-epi","#7d96ff","#0b1020"],"DRAMÁTICO":["💥","lv-dra","#ff5a5f","#1a0505"]};
+  const LVL={"LENDÁRIO":["🔥","#F5A623","#141414"],"ÉPICO":["⚡","#7d96ff","#0b1020"],"DRAMÁTICO":["💥","#ff5a5f","#1a0505"]};
 
-  /* ---------- TOP 10 ---------- */
-  // slug aponta p/ jogo do catálogo quando existe; senão vira card sem link
+  /* ---------- TOP 10 (com playlist) ---------- */
   const TOP10=[
-    {slug:"uruguai-brasil-1950", teams:"Uruguai 2 × 1 Brasil", comp:"Copa do Mundo", yr:1950, lvl:"LENDÁRIO", why:"O Maracanazo. 200 mil pessoas silenciadas no maior baque da história do futebol brasileiro."},
-    {slug:"brasil-italia-1970", teams:"Brasil 4 × 1 Itália", comp:"Copa do Mundo", yr:1970, lvl:"LENDÁRIO", why:"O futebol-arte no seu ápice. O gol de Carlos Alberto e o tricampeonato eterno de Pelé."},
-    {slug:"argentina-franca-2022", teams:"Argentina 3 × 3 França", comp:"Copa do Mundo", yr:2022, lvl:"LENDÁRIO", why:"Messi x Mbappé. A final mais completa de todos os tempos, decidida nos pênaltis no Catar."},
-    {slug:"liverpool-ac-milan-2005", teams:"Liverpool 3 × 3 Milan", comp:"Champions League", yr:2005, lvl:"LENDÁRIO", why:"O Milagre de Istambul. 0 a 3 no intervalo, campeão nos pênaltis. A maior virada da história."},
-    {slug:"argentina-inglaterra-1986", teams:"Argentina 2 × 1 Inglaterra", comp:"Copa do Mundo", yr:1986, lvl:"LENDÁRIO", why:"A Mão de Deus e o Gol do Século de Maradona no mesmo jogo. Genialidade e polêmica eternas."},
-    {slug:"brasil-alemanha-2014", teams:"Brasil 1 × 7 Alemanha", comp:"Copa do Mundo", yr:2014, lvl:"DRAMÁTICO", why:"Quatro gols em seis minutos. O trauma que superou o Maracanazo, dentro de casa."},
-    {slug:"barcelona-psg-2017", teams:"Barcelona 6 × 1 PSG", comp:"Champions League", yr:2017, lvl:"ÉPICO", why:"La Remontada. Perdia por 4 a 0 e virou com três gols no fim. A noite mágica do Camp Nou."},
-    {slug:"manchester-united-bayern-1999", teams:"Man United 2 × 1 Bayern", comp:"Champions League", yr:1999, lvl:"LENDÁRIO", why:"Dois gols nos acréscimos. A tríplice coroa do United na virada mais dramática de uma final."},
-    {slug:"italia-brasil-1982", teams:"Itália 3 × 2 Brasil", comp:"Copa do Mundo", yr:1982, lvl:"ÉPICO", why:"A Tragédia do Sarriá. Paolo Rossi eliminou o Brasil mais amado que nunca foi campeão."},
-    {slug:"brasil-suecia-1958", teams:"Brasil 5 × 2 Suécia", comp:"Copa do Mundo", yr:1958, lvl:"LENDÁRIO", why:"O nascimento de um mito. Pelé, aos 17 anos, deu ao Brasil seu primeiro título mundial."}
+    {slug:"uruguai-brasil-1950", teams:"Uruguai 2 × 1 Brasil", pa:2,pb:1, ca:"#5CBFEB",cb:"#009C3B", comp:"Copa do Mundo", yr:1950, lvl:"LENDÁRIO", why:"O Maracanazo. 200 mil pessoas silenciadas no maior baque da história do futebol brasileiro."},
+    {slug:"brasil-italia-1970", teams:"Brasil 4 × 1 Itália", pa:4,pb:1, ca:"#009C3B",cb:"#003DA5", comp:"Copa do Mundo", yr:1970, lvl:"LENDÁRIO", why:"O futebol-arte no seu ápice. O gol de Carlos Alberto e o tricampeonato eterno de Pelé."},
+    {slug:"argentina-franca-2022", teams:"Argentina 3 × 3 França", pa:3,pb:3, ca:"#75AADB",cb:"#002395", comp:"Copa do Mundo", yr:2022, lvl:"LENDÁRIO", why:"Messi x Mbappé. A final mais completa de todos os tempos, decidida nos pênaltis no Catar."},
+    {slug:"liverpool-ac-milan-2005", teams:"Liverpool 3 × 3 Milan", pa:3,pb:3, ca:"#C8102E",cb:"#FB090B", comp:"Champions League", yr:2005, lvl:"LENDÁRIO", why:"O Milagre de Istambul. 0 a 3 no intervalo, campeão nos pênaltis. A maior virada da história."},
+    {slug:"argentina-inglaterra-1986", teams:"Argentina 2 × 1 Inglaterra", pa:2,pb:1, ca:"#75AADB",cb:"#FFFFFF", comp:"Copa do Mundo", yr:1986, lvl:"LENDÁRIO", why:"A Mão de Deus e o Gol do Século de Maradona no mesmo jogo. Genialidade e polêmica eternas."},
+    {slug:"brasil-alemanha-2014", teams:"Brasil 1 × 7 Alemanha", pa:1,pb:7, ca:"#009C3B",cb:"#000000", comp:"Copa do Mundo", yr:2014, lvl:"DRAMÁTICO", why:"Quatro gols em seis minutos. O trauma que superou o Maracanazo, dentro de casa."},
+    {slug:"barcelona-psg-2017", teams:"Barcelona 6 × 1 PSG", pa:6,pb:1, ca:"#A50044",cb:"#004170", comp:"Champions League", yr:2017, lvl:"ÉPICO", why:"La Remontada. Perdia por 4 a 0 e virou com três gols no fim. A noite mágica do Camp Nou."},
+    {slug:"manchester-united-bayern-1999", teams:"Man United 2 × 1 Bayern", pa:2,pb:1, ca:"#DA291C",cb:"#DC052D", comp:"Champions League", yr:1999, lvl:"LENDÁRIO", why:"Dois gols nos acréscimos. A tríplice coroa do United na virada mais dramática de uma final."},
+    {slug:"italia-brasil-1982", teams:"Itália 3 × 2 Brasil", pa:3,pb:2, ca:"#003DA5",cb:"#009C3B", comp:"Copa do Mundo", yr:1982, lvl:"ÉPICO", why:"A Tragédia do Sarriá. Paolo Rossi eliminou o Brasil mais amado que nunca foi campeão."},
+    {slug:"brasil-suecia-1958", teams:"Brasil 5 × 2 Suécia", pa:5,pb:2, ca:"#009C3B",cb:"#005BAC", comp:"Copa do Mundo", yr:1958, lvl:"LENDÁRIO", why:"O nascimento de um mito. Pelé, aos 17 anos, deu ao Brasil seu primeiro título mundial."}
   ];
+
+
+  // separa "Nome A  X × Y  Nome B" e envolve o placar num span ocultável
+  function hideScoreInName(str){
+    return str.replace(/(\d+)\s*×\s*(\d+)/, '<span class="score-hideable">$1 × $2</span>');
+  }
+
+  function shade(hex,p){const c=hex.replace('#','');const n=parseInt(c,16);let r=(n>>16)&255,g=(n>>8)&255,b=n&255;r=Math.max(0,r+Math.round(255*p/100));g=Math.max(0,g+Math.round(255*p/100));b=Math.max(0,b+Math.round(255*p/100));return`rgb(${Math.min(255,r)},${Math.min(255,g)},${Math.min(255,b)})`;}
+
+  /* ---- PLAYLIST estilo Netflix ---- */
+  function renderPlaylist(){
+    const rail=document.getElementById('playlistRail'); if(!rail) return;
+    rail.innerHTML=TOP10.map((t,i)=>{
+      const has=bySlug(t.slug); const lv=LVL[t.lvl];
+      return `<div class="pl-card ${has?'':'pl-soon'}" ${has?`data-slug="${t.slug}"`:''}>
+        <div class="pl-rank">${i+1}</div>
+        <div class="pl-thumb">
+          <span style="position:absolute;inset:0"><span style="position:absolute;top:0;bottom:0;left:0;width:60%;background:linear-gradient(135deg,${t.ca},${shade(t.ca,-24)});transform:skewX(-11deg) translateX(-10%)"></span><span style="position:absolute;top:0;bottom:0;right:0;width:60%;background:linear-gradient(225deg,${t.cb},${shade(t.cb,-24)});transform:skewX(-11deg) translateX(10%)"></span></span>
+          <span class="pl-veil"></span>
+          <span class="pl-badge" style="background:${lv[1]};color:${lv[2]}">${lv[0]} ${t.lvl}</span>
+          <span class="pl-score score-hideable">${t.pa}<span class="x">×</span>${t.pb}</span>
+          <span class="pl-play"><i class="fa-solid fa-play"></i></span>
+        </div>
+        <div class="pl-info">
+          <div class="pl-teams">${hideScoreInName(t.teams)}</div>
+          <div class="pl-meta">${t.comp} · ${t.yr}</div>
+        </div>
+      </div>`;
+    }).join('');
+    rail.querySelectorAll('.pl-card[data-slug]').forEach(c=>{
+      c.addEventListener('click',()=>{ location.href='partida.html?id='+encodeURIComponent(c.dataset.slug); });
+    });
+    // botões de scroll
+    const scroll=(dir)=>{ rail.scrollBy({left:dir*Math.min(680,rail.clientWidth*0.85),behavior:'smooth'}); };
+    const pv=document.getElementById('plPrev'), nx=document.getElementById('plNext');
+    if(pv) pv.addEventListener('click',()=>scroll(-1));
+    if(nx) nx.addEventListener('click',()=>scroll(1));
+    // botão assistir tudo → abre o 1º com flag de playlist
+    const wa=document.getElementById('watchAll');
+    if(wa) wa.addEventListener('click',()=>{
+      const first=TOP10.find(t=>bySlug(t.slug));
+      if(first) location.href='partida.html?id='+encodeURIComponent(first.slug)+'&playlist=top10&i=0';
+    });
+  }
+
+  /* ---------- CRAQUES ---------- */
+  // matches: slug liga ao catálogo quando existe; senão card sem link
+  const LEGENDS=[
+    {
+      key:"messi", nome:"Lionel Messi", tabName:"Messi", flag:"🇦🇷", pos:"Atacante", pais:"Argentina",
+      num:10, skin:"#e9b892", hair:"#6b4a2e", jersey:"#75AADB", jersey2:"#ffffff", bg1:"#0d2a4a", bg2:"#123a63",
+      tag:"O maior de todos, segundo muitos. Oito Bolas de Ouro e a glória máxima no Catar.",
+      stats:[["8","Bolas de Ouro"],["1","Copa do Mundo"],["800+","Gols na carreira"]],
+      matches:[
+        {slug:"argentina-franca-2022", t:"Argentina 3 × 3 França", pa:3,pb:3, d:"A consagração. Dois gols na final da Copa e o troféu que faltava para ser eterno."},
+        {slug:"barcelona-psg-2017", t:"Barcelona 6 × 1 PSG", pa:6,pb:1, d:"O maestro da Remontada. Comandou a maior virada da história da Champions."},
+        {slug:"barcelona-manchester-united-2011", t:"Barcelona 3 × 1 Man United", pa:3,pb:1, d:"O auge do Barça de Guardiola. Messi decidiu a final de Wembley com um golaço."},
+        {slug:"argentina-colombia-2024", t:"Argentina 1 × 0 Colômbia", pa:1,pb:0, d:"Mais um título continental sob o comando do capitão argentino."},
+        {slug:"argentina-brasil-2021", t:"Argentina 1 × 0 Brasil", pa:1,pb:0, d:"O primeiro título com a Argentina, no Maracanã. O peso saiu das costas do gênio."}
+      ]
+    },
+    {
+      key:"cr7", nome:"Cristiano Ronaldo", tabName:"Cristiano", flag:"🇵🇹", pos:"Atacante", pais:"Portugal",
+      num:7, skin:"#e3b491", hair:"#2b1d12", jersey:"#C60C30", jersey2:"#004C99", bg1:"#3a0a14", bg2:"#5c0f1f",
+      tag:"Máquina de gols e recordes. O maior artilheiro da história do futebol.",
+      stats:[["5","Bolas de Ouro"],["5","Champions League"],["900+","Gols na carreira"]],
+      matches:[
+        {slug:"real-madrid-juventus-2017", t:"Real Madrid 4 × 1 Juventus", pa:4,pb:1, d:"Dois gols na final e a Duodécima. CR7 no auge da era europeia do Real."},
+        {slug:"real-madrid-atletico-de-madrid-2014", t:"Real Madrid 4 × 1 Atlético", pa:4,pb:1, d:"Fechou o placar de La Décima na prorrogação. O título europeu mais esperado do Real."},
+        {slug:"portugal-franca-2016", t:"Portugal 1 × 0 França", pa:1,pb:0, d:"Saiu machucado, mas ergueu Portugal ao título europeu como líder maior."}
+      ]
+    },
+    {
+      key:"pele", nome:"Pelé", tabName:"Pelé", flag:"🇧🇷", pos:"Atacante", pais:"Brasil",
+      num:10, skin:"#7a4a2b", hair:"#161210", jersey:"#FFDF00", jersey2:"#009C3B", bg1:"#0a3d1f", bg2:"#0f5c2e",
+      tag:"O Rei. Único tricampeão mundial. O nome que define a grandeza no futebol.",
+      stats:[["3","Copas do Mundo"],["1281","Gols na carreira"],["1","Rei do futebol"]],
+      matches:[
+        {slug:"brasil-italia-1970", t:"Brasil 4 × 1 Itália", pa:4,pb:1, d:"A obra-prima de 1970. Abriu o placar e deu o passe do gol mais bonito das Copas."},
+        {slug:"brasil-suecia-1958", t:"Brasil 5 × 2 Suécia", pa:5,pb:2, d:"Aos 17 anos, dois gols na final e o nascimento da maior lenda do esporte."},
+        {slug:"brasil-inglaterra-1970", t:"Brasil 1 × 0 Inglaterra", pa:1,pb:0, d:"A defesa impossível de Banks na cabeçada de Pelé. Um duelo de gigantes eterno."},
+        {slug:"santos-peñarol-1962", t:"Santos 3 × 0 Peñarol", pa:3,pb:0, d:"Conquistou a América pelo Santos, provando sua grandeza também nos clubes."}
+      ]
+    },
+    {
+      key:"maradona", nome:"Diego Maradona", tabName:"Maradona", flag:"🇦🇷", pos:"Meia-atacante", pais:"Argentina",
+      num:10, skin:"#d9a679", hair:"#1a1410", jersey:"#75AADB", jersey2:"#ffffff", bg1:"#0d2a4a", bg2:"#123a63",
+      tag:"O gênio rebelde. Carregou a Argentina ao título de 1986 quase sozinho.",
+      stats:[["1","Copa do Mundo"],["2","Gols do século"],["10","A camisa eterna"]],
+      matches:[
+        {slug:"argentina-inglaterra-1986", t:"Argentina 2 × 1 Inglaterra", pa:2,pb:1, d:"A Mão de Deus e o Gol do Século no mesmo jogo. O ápice absoluto de um gênio."},
+        {slug:"argentina-alemanha-ocidental-1986", t:"Argentina 3 × 2 Alemanha", pa:3,pb:2, d:"Deu o passe do gol do título e coroou a Copa mais individual da história."},
+        {slug:"argentina-holanda-1978", t:"Argentina 3 × 1 Holanda", pa:3,pb:1, d:"O berço da paixão argentina que Maradona levaria ao mundo anos depois."}
+      ]
+    },
+    {
+      key:"ronaldo", nome:"Ronaldo Fenômeno", tabName:"Ronaldo", flag:"🇧🇷", pos:"Atacante", pais:"Brasil",
+      num:9, skin:"#8a5a37", hair:"#161210", jersey:"#FFDF00", jersey2:"#009C3B", bg1:"#0a3d1f", bg2:"#0f5c2e",
+      tag:"O Fenômeno. O atacante mais assustador de sua geração e a redenção de 2002.",
+      stats:[["2","Bolas de Ouro"],["2","Copas do Mundo"],["15","Gols em Copas"]],
+      matches:[
+        {slug:"alemanha-brasil-2002", t:"Alemanha 0 × 2 Brasil", pa:0,pb:2, d:"Os dois gols do penta e a redenção após o mistério de 1998. Choro e glória."},
+        {slug:"brasil-holanda-1998", t:"Brasil 3 × 2 Holanda", pa:3,pb:2, d:"Marcou e brilhou na semifinal, levando o Brasil à final nos pênaltis."},
+        {slug:"franca-brasil-1998", t:"França 3 × 0 Brasil", pa:3,pb:0, d:"A final mais enigmática. A convulsão misteriosa e a queda diante da França."}
+      ]
+    },
+    {
+      key:"ronaldinho", nome:"Ronaldinho Gaúcho", tabName:"Ronaldinho", flag:"🇧🇷", pos:"Meia-atacante", pais:"Brasil",
+      num:10, skin:"#7a4a2b", hair:"#0f0c0a", jersey:"#FFDF00", jersey2:"#009C3B", bg1:"#0a3d1f", bg2:"#0f5c2e",
+      tag:"A alegria em forma de futebol. O bruxo que encantou o mundo com magia e sorriso.",
+      stats:[["1","Bola de Ouro"],["1","Copa do Mundo"],["1","Libertadores"]],
+      matches:[
+        {slug:"atletico-mg-sao-paulo-2013", t:"Atlético-MG 4 × 1 São Paulo", pa:4,pb:1, d:"Comandou o Galo rumo à Libertadores inédita numa campanha mágica de viradas."},
+        {slug:"brasil-argentina-2005-conf", t:"Brasil 4 × 1 Argentina", pa:4,pb:1, d:"Na final da Copa das Confederações de 2005, deu show contra o maior rival."},
+        {slug:"barcelona-real-clasico-2005", t:"Real Madrid 0 × 3 Barcelona", pa:0,pb:3, d:"A noite em que o Bernabéu aplaudiu de pé o rival. Magia pura de Ronaldinho."}
+      ]
+    },
+    {
+      key:"neymar", nome:"Neymar Jr.", tabName:"Neymar", flag:"🇧🇷", pos:"Atacante", pais:"Brasil",
+      num:10, skin:"#c89b71", hair:"#4a3520", jersey:"#FFDF00", jersey2:"#009C3B", bg1:"#0a3d1f", bg2:"#0f5c2e",
+      tag:"O maior craque de sua geração no Brasil. Artilheiro histórico da seleção.",
+      stats:[["1","Ouro Olímpico"],["1","Libertadores"],["79+","Gols pelo Brasil"]],
+      matches:[
+        {slug:"brasil-olimpiada-2016", t:"Brasil 1 × 1 Alemanha", pa:1,pb:1, d:"Converteu o pênalti decisivo e deu ao Brasil o inédito ouro olímpico em casa."},
+        {slug:"brasil-espanha-2013", t:"Brasil 4 × 1 Espanha", pa:4,pb:1, d:"Show na final da Copa das Confederações. O Brasil atropelou a campeã do mundo."},
+        {slug:"barcelona-psg-2017", t:"Barcelona 6 × 1 PSG", pa:6,pb:1, d:"Peça-chave da Remontada: marcou, criou e empurrou o Barça na virada histórica."}
+      ]
+    }
+  ];
+
+  function portraitSVG(L){
+    const gid="g_"+L.key;
+    return `<svg viewBox="0 0 300 360" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retrato ilustrativo de ${L.nome}">
+      <defs>
+        <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${L.bg1}"/><stop offset="1" stop-color="${L.bg2}"/></linearGradient>
+        <radialGradient id="${gid}_glow" cx="50%" cy="34%" r="55%"><stop offset="0" stop-color="rgba(245,166,35,.28)"/><stop offset="1" stop-color="rgba(245,166,35,0)"/></radialGradient>
+      </defs>
+      <rect width="300" height="360" fill="url(#${gid})"/>
+      <rect width="300" height="360" fill="url(#${gid}_glow)"/>
+      <text x="150" y="250" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="230" fill="rgba(255,255,255,.05)" text-anchor="middle">${L.num}</text>
+      <path d="M150 214 C 96 214 60 246 52 300 L 52 360 L 248 360 L 248 300 C 240 246 204 214 150 214 Z" fill="${L.jersey}"/>
+      <path d="M150 214 C 130 214 112 220 100 230 L 150 268 L 200 230 C 188 220 170 214 150 214 Z" fill="${L.jersey2}"/>
+      <path d="M132 218 L 150 240 L 168 218 C 162 214 138 214 132 218 Z" fill="rgba(0,0,0,.25)"/>
+      <text x="150" y="330" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="54" fill="${L.jersey2}" text-anchor="middle" opacity=".9">${L.num}</text>
+      <rect x="134" y="176" width="32" height="52" rx="14" fill="${L.skin}"/>
+      <path d="M134 200 q16 20 32 0 L166 228 L134 228 Z" fill="rgba(0,0,0,.12)"/>
+      <ellipse cx="150" cy="140" rx="46" ry="52" fill="${L.skin}"/>
+      <circle cx="105" cy="142" r="9" fill="${L.skin}"/><circle cx="195" cy="142" r="9" fill="${L.skin}"/>
+      <path d="M104 132 C 100 86 134 70 150 70 C 166 70 200 86 196 132 C 196 112 184 98 150 98 C 116 98 104 112 104 132 Z" fill="${L.hair}"/>
+      <path d="M120 150 q30 26 60 0" stroke="rgba(0,0,0,.10)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <ellipse cx="132" cy="122" rx="14" ry="20" fill="rgba(255,255,255,.10)"/>
+    </svg>`;
+  }
 
   function renderTop10(){
     const box=document.getElementById('top10List'); if(!box) return;
     box.innerHTML=TOP10.map((t,i)=>{
-      const has=bySlug(t.slug);
-      const lv=LVL[t.lvl];
-      return `<div class="rank-row" ${has?`data-slug="${t.slug}"`:''} ${has?'role="button" tabindex="0"':''}>
+      const has=bySlug(t.slug); const lv=LVL[t.lvl];
+      return `<div class="rank-row" ${has?`data-slug="${t.slug}" role="button" tabindex="0"`:''}>
         <div class="rank-num">${i+1}</div>
         <div class="rank-mid">
           <div class="rank-score">
-            <span class="teams">${t.teams}</span>
-            <span class="badge-mini" style="background:${lv[2]};color:${lv[3]}">${lv[0]} ${t.lvl}</span>
+            <span class="teams">${hideScoreInName(t.teams)}</span>
+            <span class="badge-mini" style="background:${lv[1]};color:${lv[2]}">${lv[0]} ${t.lvl}</span>
           </div>
           <div class="rank-why">${t.why}</div>
         </div>
@@ -720,140 +1019,21 @@ select#sort option{background:#0d1424}
     });
   }
 
-  /* ---------- CRAQUES ---------- */
-  // cada craque: cores (fundo/camisa), número, e melhores partidas (slug liga ao catálogo)
-  const LEGENDS=[
-    {
-      key:"messi", nome:"Lionel Messi", flag:"🇦🇷", pos:"Atacante", pais:"Argentina",
-      num:10, skin:"#e9b892", hair:"#6b4a2e", jersey:"#75AADB", jersey2:"#ffffff", bg1:"#0d2a4a", bg2:"#123a63",
-      tag:"O maior de todos, segundo muitos. Oito Bolas de Ouro e a glória máxima no Catar.",
-      stats:[["8","Bolas de Ouro"],["1","Copa do Mundo"],["800+","Gols na carreira"]],
-      matches:[
-        {slug:"argentina-franca-2022", t:"Argentina 3 × 3 França", pa:3,pb:3, d:"A consagração. Dois gols na final da Copa e o troféu que faltava para ser eterno."},
-        {slug:"barcelona-psg-2017", t:"Barcelona 6 × 1 PSG", pa:6,pb:1, d:"O maestro da Remontada. Comandou a maior virada da história da Champions."},
-        {slug:"argentina-colombia-2024", t:"Argentina 1 × 0 Colômbia", pa:1,pb:0, d:"Mais um título continental sob o comando do capitão argentino."}
-      ]
-    },
-    {
-      key:"cr7", nome:"Cristiano Ronaldo", flag:"🇵🇹", pos:"Atacante", pais:"Portugal",
-      num:7, skin:"#e3b491", hair:"#2b1d12", jersey:"#C60C30", jersey2:"#004C99", bg1:"#3a0a14", bg2:"#5c0f1f",
-      tag:"Máquina de gols e recordes. O maior artilheiro da história do futebol.",
-      stats:[["5","Bolas de Ouro"],["5","Champions League"],["900+","Gols na carreira"]],
-      matches:[
-        {slug:"real-madrid-juventus-2017", t:"Real Madrid 4 × 1 Juventus", pa:4,pb:1, d:"Dois gols na final e a Duodécima. CR7 no auge da era europeia do Real."},
-        {slug:"portugal-franca-2016", t:"Portugal 1 × 0 França", pa:1,pb:0, d:"Saiu machucado, mas ergueu Portugal ao título europeu como líder maior."}
-      ]
-    },
-    {
-      key:"pele", nome:"Pelé", flag:"🇧🇷", pos:"Atacante", pais:"Brasil",
-      num:10, skin:"#7a4a2b", hair:"#161210", jersey:"#FFDF00", jersey2:"#009C3B", bg1:"#0a3d1f", bg2:"#0f5c2e",
-      tag:"O Rei. Único tricampeão mundial. O nome que define a grandeza no futebol.",
-      stats:[["3","Copas do Mundo"],["1281","Gols (oficiais+)"],["1","Rei do futebol"]],
-      matches:[
-        {slug:"brasil-italia-1970", t:"Brasil 4 × 1 Itália", pa:4,pb:1, d:"A obra-prima de 1970. Abriu o placar e deu o passe do gol mais bonito das Copas."},
-        {slug:"brasil-suecia-1958", t:"Brasil 5 × 2 Suécia", pa:5,pb:2, d:"Aos 17 anos, dois gols na final e o nascimento da maior lenda do esporte."},
-        {slug:"santos-peñarol-1962", t:"Santos 3 × 0 Peñarol", pa:3,pb:0, d:"Conquistou a América pelo Santos, provando sua grandeza também nos clubes."}
-      ]
-    },
-    {
-      key:"maradona", nome:"Diego Maradona", flag:"🇦🇷", pos:"Meia-atacante", pais:"Argentina",
-      num:10, skin:"#d9a679", hair:"#1a1410", jersey:"#75AADB", jersey2:"#ffffff", bg1:"#0d2a4a", bg2:"#123a63",
-      tag:"O gênio rebelde. Carregou a Argentina ao título de 1986 quase sozinho.",
-      stats:[["1","Copa do Mundo"],["2","Gols do século"],["10","A camisa eterna"]],
-      matches:[
-        {slug:"argentina-inglaterra-1986", t:"Argentina 2 × 1 Inglaterra", pa:2,pb:1, d:"A Mão de Deus e o Gol do Século no mesmo jogo. O ápice absoluto de um gênio."},
-        {slug:"argentina-alemanha-ocidental-1986", t:"Argentina 3 × 2 Alemanha", pa:3,pb:2, d:"Deu o passe do gol do título e coroou a Copa mais individual da história."}
-      ]
-    },
-    {
-      key:"ronaldo", nome:"Ronaldo Fenômeno", flag:"🇧🇷", pos:"Atacante", pais:"Brasil",
-      num:9, skin:"#8a5a37", hair:"#161210", jersey:"#FFDF00", jersey2:"#009C3B", bg1:"#0a3d1f", bg2:"#0f5c2e",
-      tag:"O Fenômeno. O atacante mais assustador de sua geração e a redenção de 2002.",
-      stats:[["2","Bolas de Ouro"],["2","Copas do Mundo"],["15","Gols em Copas"]],
-      matches:[
-        {slug:"alemanha-brasil-2002", t:"Alemanha 0 × 2 Brasil", pa:0,pb:2, d:"Os dois gols do penta e a redenção após o mistério de 1998. Choro e glória."},
-        {slug:"brasil-holanda-1998", t:"Brasil 1 × 1 Holanda", pa:1,pb:1, d:"Marcou e brilhou na semifinal antes da final mais enigmática de sua carreira."}
-      ]
-    },
-    {
-      key:"ronaldinho", nome:"Ronaldinho Gaúcho", flag:"🇧🇷", pos:"Meia-atacante", pais:"Brasil",
-      num:10, skin:"#7a4a2b", hair:"#0f0c0a", jersey:"#FFDF00", jersey2:"#009C3B", bg1:"#0a3d1f", bg2:"#0f5c2e",
-      tag:"A alegria em forma de futebol. O bruxo que encantou o mundo com magia e sorriso.",
-      stats:[["1","Bola de Ouro"],["1","Copa do Mundo"],["1","Libertadores"]],
-      matches:[
-        {slug:"atletico-mg-sao-paulo-2013", t:"Atlético-MG 4 × 1 São Paulo", pa:4,pb:1, d:"Comandou o Galo rumo à Libertadores inédita numa campanha mágica de viradas."}
-      ]
-    },
-    {
-      key:"neymar", nome:"Neymar Jr.", flag:"🇧🇷", pos:"Atacante", pais:"Brasil",
-      num:10, skin:"#c89b71", hair:"#4a3520", jersey:"#FFDF00", jersey2:"#009C3B", bg1:"#0a3d1f", bg2:"#0f5c2e",
-      tag:"O maior craque de sua geração no Brasil. Artilheiro histórico da seleção.",
-      stats:[["1","Ouro Olímpico"],["1","Libertadores"],["79+","Gols pelo Brasil"]],
-      matches:[
-        {slug:"brasil-alemanha-2016", t:"Brasil 1 × 1 Alemanha", pa:1,pb:1, d:"Converteu o pênalti decisivo e deu ao Brasil o inédito ouro olímpico em casa."},
-        {slug:"barcelona-psg-2017", t:"Barcelona 6 × 1 PSG", pa:6,pb:1, d:"Peça-chave da Remontada: marcou, criou e empurrou o Barça na virada histórica."}
-      ]
-    }
-  ];
-
-  /* ---- retrato SVG original (abstrato, sem semelhança a foto) ---- */
-  function portraitSVG(L){
-    const gid="g_"+L.key;
-    return `<svg viewBox="0 0 300 360" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retrato ilustrativo de ${L.nome}">
-      <defs>
-        <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="${L.bg1}"/><stop offset="1" stop-color="${L.bg2}"/>
-        </linearGradient>
-        <radialGradient id="${gid}_glow" cx="50%" cy="34%" r="55%">
-          <stop offset="0" stop-color="rgba(245,166,35,.28)"/><stop offset="1" stop-color="rgba(245,166,35,0)"/>
-        </radialGradient>
-      </defs>
-      <rect width="300" height="360" fill="url(#${gid})"/>
-      <rect width="300" height="360" fill="url(#${gid}_glow)"/>
-      <!-- número grande de fundo -->
-      <text x="150" y="250" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="230" fill="rgba(255,255,255,.05)" text-anchor="middle">${L.num}</text>
-      <!-- ombros / camisa -->
-      <path d="M150 214 C 96 214 60 246 52 300 L 52 360 L 248 360 L 248 300 C 240 246 204 214 150 214 Z" fill="${L.jersey}"/>
-      <path d="M150 214 C 130 214 112 220 100 230 L 150 268 L 200 230 C 188 220 170 214 150 214 Z" fill="${L.jersey2}"/>
-      <!-- gola -->
-      <path d="M132 218 L 150 240 L 168 218 C 162 214 138 214 132 218 Z" fill="rgba(0,0,0,.25)"/>
-      <!-- número na camisa -->
-      <text x="150" y="330" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="54" fill="${L.jersey2}" text-anchor="middle" opacity=".9">${L.num}</text>
-      <!-- pescoço -->
-      <rect x="134" y="176" width="32" height="52" rx="14" fill="${L.skin}"/>
-      <path d="M134 200 q16 20 32 0 L166 228 L134 228 Z" fill="rgba(0,0,0,.12)"/>
-      <!-- cabeça -->
-      <ellipse cx="150" cy="140" rx="46" ry="52" fill="${L.skin}"/>
-      <!-- orelhas -->
-      <circle cx="105" cy="142" r="9" fill="${L.skin}"/><circle cx="195" cy="142" r="9" fill="${L.skin}"/>
-      <!-- cabelo -->
-      <path d="M104 132 C 100 86 134 70 150 70 C 166 70 200 86 196 132 C 196 112 184 98 150 98 C 116 98 104 112 104 132 Z" fill="${L.hair}"/>
-      <!-- sombra facial simples (abstrato, sem traços realistas) -->
-      <ellipse cx="150" cy="150" rx="46" ry="52" fill="none"/>
-      <path d="M120 150 q30 26 60 0" stroke="rgba(0,0,0,.10)" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <!-- brilho -->
-      <ellipse cx="132" cy="122" rx="14" ry="20" fill="rgba(255,255,255,.10)"/>
-    </svg>`;
-  }
-
   function renderLegends(){
     const tabs=document.getElementById('legendTabs');
     const panels=document.getElementById('legendPanels');
     if(!tabs||!panels) return;
 
     tabs.innerHTML=LEGENDS.map((L,i)=>
-      `<button class="legend-tab ${i===0?'active':''}" data-key="${L.key}"><span class="flag">${L.flag}</span> ${L.nome.split(' ')[0]}${L.key==='cr7'?' Ronaldo':''}</button>`
+      `<button class="legend-tab ${i===0?'active':''}" data-key="${L.key}"><span class="flag">${L.flag}</span> ${L.tabName}</button>`
     ).join('');
 
     panels.innerHTML=LEGENDS.map((L,i)=>{
       const matches=L.matches.map(m=>{
         const has=bySlug(m.slug);
         return `<div class="lm ${has?'':'nolink'}" ${has?`data-slug="${m.slug}"`:''}>
-          <div class="lm-score">${m.pa}<span class="x">×</span>${m.pb}</div>
-          <div class="lm-body">
-            <div class="lm-title">${m.t}</div>
-            <div class="lm-desc">${m.d}</div>
-          </div>
+          <div class="lm-score score-hideable">${m.pa}<span class="x">×</span>${m.pb}</div>
+          <div class="lm-body"><div class="lm-title">${hideScoreInName(m.t)}</div><div class="lm-desc">${m.d}</div></div>
           <i class="fa-solid fa-arrow-right lm-go"></i>
         </div>`;
       }).join('');
@@ -861,25 +1041,19 @@ select#sort option{background:#0d1424}
         <div class="legend-card">
           <div class="legend-portrait">
             ${portraitSVG(L)}
-            <div class="p-name-badge">
-              <span class="p-num">${L.num}</span>
-              <span class="p-pos">${L.pos}<span class="cty">${L.flag} ${L.pais}</span></span>
-            </div>
+            <div class="p-name-badge"><span class="p-num">${L.num}</span><span class="p-pos">${L.pos}<span class="cty">${L.flag} ${L.pais}</span></span></div>
           </div>
           <div class="legend-info">
             <div class="li-name">${L.nome}</div>
             <div class="li-tag">${L.tag}</div>
             <div class="li-sub"><i class="fa-solid fa-futbol"></i> Partidas lendárias</div>
             <div class="legend-matches">${matches}</div>
-            <div class="legend-stats-row">
-              ${L.stats.map(s=>`<div class="ls"><span class="lv">${s[0]}</span><span class="lk">${s[1]}</span></div>`).join('')}
-            </div>
+            <div class="legend-stats-row">${L.stats.map(s=>`<div class="ls"><span class="lv">${s[0]}</span><span class="lk">${s[1]}</span></div>`).join('')}</div>
           </div>
         </div>
       </div>`;
     }).join('');
 
-    // tabs
     tabs.querySelectorAll('.legend-tab').forEach(btn=>{
       btn.addEventListener('click',()=>{
         tabs.querySelectorAll('.legend-tab').forEach(b=>b.classList.remove('active'));
@@ -887,13 +1061,12 @@ select#sort option{background:#0d1424}
         panels.querySelectorAll('.legend-panel').forEach(p=>p.classList.toggle('active', p.dataset.panel===btn.dataset.key));
       });
     });
-    // match links
     panels.querySelectorAll('.lm[data-slug]').forEach(m=>{
       m.addEventListener('click',()=>{ location.href='partida.html?id='+encodeURIComponent(m.dataset.slug); });
     });
   }
 
-  function init(){ renderTop10(); renderLegends(); }
+  function init(){ renderPlaylist(); renderTop10(); renderLegends(); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
   else init();
 })();
